@@ -1,0 +1,35 @@
+body {
+	background-color: #AAA;
+	text-align: center;
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 1em;
+}
+
+main {
+	<!--border: 1px solid red;-->
+}
+
+p {
+	margin: 0;
+	text-align: center;
+	margin: 0;
+}
+
+input {
+	background-color: white;
+	font-size: 6vw;
+	width: 10vw;
+	height:10vw;
+	margin: 0;
+}
+
+#jogador {
+	display: inline;
+}
+
+#reiniciar {
+	margin-top: 1%;
+	width: 8vw;
+	height:4vw;
+	font-size: 1em;
+}
