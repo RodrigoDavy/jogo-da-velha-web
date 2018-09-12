@@ -1,9 +1,12 @@
-const lista = document.getElementsByTagName('input');
-const b_reiniciar = document.getElementById('reiniciar');
-const label_jogador = document.getElementById('jogador');
+//Obtendo os elementos do DOM com que vamos interagir
 
-var jogador = '_';
+const casas = document.getElementsByTagName('input'); //pega a lista de casas do tabuleiro do jogo
+const b_reiniciar = document.getElementById('reiniciar'); //pega o botão de reiniciar
+const label_jogador = document.getElementById('jogador'); //pegar o label do jogador que usaremos para mostrar qual jogador tem a vez
 
+var jogador = '_'; //Define o jogador atual (_ = jogador indefinido; X = jogador X, O = jogador O) 
+
+//Usa uma função que decide aleatoriamente o jogar a fazer a primeira jogada
 var sortearJogador = function() {
 	if(Math.floor(Math.random() * 2)==0) {
 		jogador = "O";
@@ -18,8 +21,9 @@ var sortearJogador = function() {
 
 sortearJogador();
 
-var vencedor = '_';
+var vencedor = '_'; //Define se há um vencedor ou não (_ = indefinido; X = jogador X, O = jogador O) 
 
+//Alterna a vez entre os jogadores X e Y
 var trocarJogador = function() {
 	if(jogador=='X') {
 		jogador='O';
@@ -33,63 +37,70 @@ var trocarJogador = function() {
 	}
 }
 
+//Verifica se uma condição de vitória foi atingida e colore a linha da vitória
 var vitoria = function() {
-	if((lista[0].value==lista[1].value) && (lista[1].value==lista[2].value) && lista[0].value!='_' ) {
-		lista[0].style.backgroundColor='#0F0';
-		lista[1].style.backgroundColor='#0F0';
-		lista[2].style.backgroundColor='#0F0';
+	if((casas[0].value==casas[1].value) && (casas[1].value==casas[2].value) && casas[0].value!='_' ) {
+		casas[0].style.backgroundColor='#0F0';
+		casas[1].style.backgroundColor='#0F0';
+		casas[2].style.backgroundColor='#0F0';
 
-		return lista[0].value;
-	}else if((lista[3].value==lista[4].value) && (lista[4].value==lista[5].value) && lista[3].value!='_' ) {
-		lista[3].style.backgroundColor='#0F0';
-		lista[4].style.backgroundColor='#0F0';
-		lista[5].style.backgroundColor='#0F0';
+		return casas[0].value;
 
-		return lista[3].value;
-	}else if((lista[6].value==lista[7].value) && (lista[7].value==lista[8].value) && lista[6].value!='_' ) {
-		lista[6].style.backgroundColor='#0F0';
-		lista[7].style.backgroundColor='#0F0';
-		lista[8].style.backgroundColor='#0F0';
+	}else if((casas[3].value==casas[4].value) && (casas[4].value==casas[5].value) && casas[3].value!='_' ) {
+		casas[3].style.backgroundColor='#0F0';
+		casas[4].style.backgroundColor='#0F0';
+		casas[5].style.backgroundColor='#0F0';
 
-		return lista[6].value;
+		return casas[3].value;
 
-	}else if((lista[0].value==lista[3].value) && (lista[3].value==lista[6].value) && lista[0].value!='_' ) {
-		lista[0].style.backgroundColor='#0F0';
-		lista[3].style.backgroundColor='#0F0';
-		lista[6].style.backgroundColor='#0F0';
+	}else if((casas[6].value==casas[7].value) && (casas[7].value==casas[8].value) && casas[6].value!='_' ) {
+		casas[6].style.backgroundColor='#0F0';
+		casas[7].style.backgroundColor='#0F0';
+		casas[8].style.backgroundColor='#0F0';
 
-		return lista[0].value;
-	}else if((lista[1].value==lista[4].value) && (lista[4].value==lista[7].value) && lista[1].value!='_' ) {
-		lista[1].style.backgroundColor='#0F0';
-		lista[4].style.backgroundColor='#0F0';
-		lista[7].style.backgroundColor='#0F0';
+		return casas[6].value;
 
-		return lista[1].value;
-	}else if((lista[2].value==lista[5].value) && (lista[5].value==lista[8].value) && lista[2].value!='_' ) {
-		lista[2].style.backgroundColor='#0F0';
-		lista[5].style.backgroundColor='#0F0';
-		lista[8].style.backgroundColor='#0F0';
+	}else if((casas[0].value==casas[3].value) && (casas[3].value==casas[6].value) && casas[0].value!='_' ) {
+		casas[0].style.backgroundColor='#0F0';
+		casas[3].style.backgroundColor='#0F0';
+		casas[6].style.backgroundColor='#0F0';
 
-		return lista[2].value;
-	}else if((lista[0].value==lista[4].value) && (lista[4].value==lista[8].value) && lista[0].value!='_' ) {
-		lista[0].style.backgroundColor='#0F0';
-		lista[4].style.backgroundColor='#0F0';
-		lista[8].style.backgroundColor='#0F0';
+		return casas[0].value;
 
-		return lista[0].value;
-	}else if((lista[2].value==lista[4].value) && (lista[4].value==lista[6].value) && lista[2].value!='_' ) {
-		lista[2].style.backgroundColor='#0F0';
-		lista[4].style.backgroundColor='#0F0';
-		lista[6].style.backgroundColor='#0F0';
+	}else if((casas[1].value==casas[4].value) && (casas[4].value==casas[7].value) && casas[1].value!='_' ) {
+		casas[1].style.backgroundColor='#0F0';
+		casas[4].style.backgroundColor='#0F0';
+		casas[7].style.backgroundColor='#0F0';
 
-		return lista[2].value;
+		return casas[1].value;
+
+	}else if((casas[2].value==casas[5].value) && (casas[5].value==casas[8].value) && casas[2].value!='_' ) {
+		casas[2].style.backgroundColor='#0F0';
+		casas[5].style.backgroundColor='#0F0';
+		casas[8].style.backgroundColor='#0F0';
+
+		return casas[2].value;
+	}else if((casas[0].value==casas[4].value) && (casas[4].value==casas[8].value) && casas[0].value!='_' ) {
+		casas[0].style.backgroundColor='#0F0';
+		casas[4].style.backgroundColor='#0F0';
+		casas[8].style.backgroundColor='#0F0';
+
+		return casas[0].value;
+
+	}else if((casas[2].value==casas[4].value) && (casas[4].value==casas[6].value) && casas[2].value!='_' ) {
+		casas[2].style.backgroundColor='#0F0';
+		casas[4].style.backgroundColor='#0F0';
+		casas[6].style.backgroundColor='#0F0';
+
+		return casas[2].value;
 	}
 
 	return '_';
 }
 
+//Define a resposta ao evento de clique nas casas do "tabuleiro"
 for(var i=0;i<9;i++) {
-	lista[i].addEventListener('click', (event) => {
+	casas[i].addEventListener('click', (event) => {
 		if( (event.target.value=='_') && (vencedor=='_')) {
 			event.target.value=jogador;
 			event.target.style.color='black';
@@ -99,17 +110,19 @@ for(var i=0;i<9;i++) {
 			vencedor = vitoria();
 
 			if(vencedor!='_') {
-				alert('O jogador '+ vencedor + ' venceu!!!');
+				label_jogador.innerText=`${vencedor} venceu!`;
+				
 			}
 		}
 	});
 }
 
+//Define a resposta ao evento de clique no botão Reiniciar
 b_reiniciar.addEventListener('click', (event) => {
 	for(var i=0;i<9;i++) {
-		lista[i].value='_';
-		lista[i].style.color='white';
-		lista[i].style.backgroundColor='white';
+		casas[i].value='_';
+		casas[i].style.color='white';
+		casas[i].style.backgroundColor='white';
 	}
 
 	vencedor = '_';
