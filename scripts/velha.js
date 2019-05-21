@@ -10,6 +10,7 @@ const label_jogador = document.getElementById('jogador'); //pegar o label do jog
 
 var jogador = '_'; //Define o jogador atual (_ = jogador indefinido; X = jogador X, O = jogador O) 
 var vencedor = '_'; //Define se há um vencedor ou não (_ = indefinido; X = jogador X, O = jogador O) 
+var finish;
 
 //Define a resposta ao evento de clique nas casas do "tabuleiro"
 for(var i=0;i<9;i++) {
@@ -17,17 +18,14 @@ for(var i=0;i<9;i++) {
 		//se a casa estiver vazia e ninguém tiver vencido a partida
 		if( (event.target.value=='_') && (vencedor=='_')) {
 			event.target.value=jogador; //preenche a casa com X ou O
-			event.target.style.color='black'; //torna o valor da casa visível
+			event.target.style.color='#bc5e00'; //torna o valor da casa visível
 
 			trocarJogador(); //função que troca a vez do jogador, a ser definida depois
 
 			vencedor = vitoria(); //Executa a função vitoria() que defineremos depois, ela retorna o vencedor da partida, caso exista.
 
 			//se o vencedor existe, imprime
-			if(vencedor!='_') {
-				label_jogador.innerText=`${vencedor} venceu!`;
-				
-			}
+			
 		}
 	});
 }
@@ -36,8 +34,8 @@ for(var i=0;i<9;i++) {
 b_reiniciar.addEventListener('click', (event) => {
 	for(var i=0;i<9;i++) {
 		casas[i].value='_'; //Limpa todas as casas
-		casas[i].style.color='white'; //Torna o valor _ invisível
-		casas[i].style.backgroundColor='white'; //Torna o fundo branco
+		casas[i].style.color='#F7FE2E'; //Torna o valor _ invisível
+		casas[i].style.backgroundColor='#F7FE2E'; //Torna o fundo branco
 	}
 
 	vencedor = '_'; //Reseta o vencedor
@@ -50,11 +48,11 @@ var sortearJogador = function() {
 	if(Math.floor(Math.random() * 2)==0) {
 		jogador = "O"; //define o jogador O como atual
 		label_jogador.innerText="O"; //exibe na página qual é o jogador atual
-		label_jogador.style.color='#F00'; //deixa o texto na cor vermelha
+		label_jogador.style.color='#ffffff'; //deixa o texto na cor vermelha
 	}else{
 		jogador = "X";//define o jogador X como atual
 		label_jogador.innerText="X"; //exibe na página qual é o jogador atual
-		label_jogador.style.color='#00F'; //deixa o texto na cor azul
+		label_jogador.style.color='#000000'; //deixa o texto na cor azul
 	}
 }
 
@@ -65,12 +63,12 @@ var trocarJogador = function() {
 	if(jogador=='X') {
 		jogador='O';
 		label_jogador.innerText='O';
-		label_jogador.style.color='#F00';
+		label_jogador.style.color='#ffffff';
 		
 	}else{
 		jogador='X';
 		label_jogador.innerText='X';
-		label_jogador.style.color='#00F';
+		label_jogador.style.color='#000000';
 	}
 }
 
@@ -131,6 +129,7 @@ var vitoria = function() {
 
 		return casas[2].value;
 	}
-
-	return '_';
+	
+								
+    return '_';
 }

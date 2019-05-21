@@ -1,17 +1,28 @@
 body {
 	background-color: #AAA;
 	text-align: center;
-	font-family: Verdana, Helvetica, sans-serif;
+	font-family: Comic Sans;
+	font-style:italic;
 	font-size: 1.3em;
+    background-image: url("madeira.jpg");
+
+}
+
+h1{
+    position: absolute;
+	color:yellow;
+	left: 690px;
 }
 
 input {
-	background-color: white;
+	background-color:#F7FE2E;
 	font-size: 6vw;
-	width: 12vw;
-	height:12vw;
+	width: 10vw;
+	height:10vw;
 	margin: 0;
-	color: white;
+	color: #F7FE2E;
+    border-radius: 25px;
+
 }
 
 #jogador {
@@ -19,9 +30,14 @@ input {
 }
 
 #reiniciar {
+	position: absolute;
 	margin-top: 2%;
-	width: 10vw;
+	width: 12vw;
 	height:6vw;
 	font-size: 1em;
 	color: black;
+    border-radius: 25px;
+	font-family: Comic Sans;
+	font-style:italic;
+	left: 490px;
 }
